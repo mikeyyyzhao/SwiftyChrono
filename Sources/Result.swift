@@ -8,6 +8,17 @@
 
 import Foundation
 
+
+@objc public class simpleResult: NSObject {
+    public let start: Date
+    public let end: Date?
+    
+    public init(start: Date, end:Date?) {
+        self.start = start
+        self.end = end
+    }
+}
+
 public struct ParsedResult {
     public let ref: Date
     public var index: Int

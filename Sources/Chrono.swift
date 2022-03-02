@@ -87,6 +87,14 @@ public enum OptionType: String { case
         let results = self.parse(text: text, refDate: refDate, opt: [.forwardDate: 1])
         return results.first?.start.date
     }
+    
+    @objc public func parseSimple(text: String, refDate: Date = Date()) -> simpleResult? {
+        let results = self.parse(text: text, refDate: refDate, opt: [.forwardDate: 1])
+        guard let first = results.first else {
+            return nil
+        }
+        return simpleResult(start: first.start.date, end: first.end?.date)
+    }
 
     @objc public static let strict = Chrono(modeOption: strictModeOption())
     @objc public static let casual = Chrono(modeOption: casualModeOption())
