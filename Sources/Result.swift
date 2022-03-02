@@ -9,7 +9,7 @@
 import Foundation
 
 
-@objc public class simpleResult: NSObject {
+@objcMembers public class simpleResult: NSObject {
     public let start: Date
     public let end: Date?
     
