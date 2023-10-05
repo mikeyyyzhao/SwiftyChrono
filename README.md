@@ -113,6 +113,14 @@ Chrono.preferredLanguage = .english
 chrono.parse(text: "you can do it tomorrow", refDate: refDate).map{ $0.text }
 // ["tomorrow"]
 
+/// specify strict language to fail if you do not want to match other languages.
+/// "Tu peux le faire demain" == "you can do it tomorrow",=
+chrono.parse(text: "Tu peux le faire demain", refDate: refDate).map{ $0.text }
+// ["demain"]
+Chrono.strictLanguage = .english
+chrono.parse(text: "Tu peux le faire demain", refDate: refDate).map{ $0.text }
+// []
+
 
 /// specify sixMinutesFixBefore1900 to true, if the date before 1900 is in your use case
 Chrono.sixMinutesFixBefore1900 = true
